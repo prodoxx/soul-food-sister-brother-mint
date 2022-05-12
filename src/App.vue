@@ -37,7 +37,7 @@ import { useWalletStore } from "./stores/wallet-store";
 const wallet = useWalletStore();
 const emitter = useEmitter();
 const snackbar: Ref<boolean> = ref(false);
-const timeout = 8000;
+const timeout = 15000;
 const snackbarText: Ref<string> = ref("");
 const snackbarColor: Ref<string> = ref("success");
 
