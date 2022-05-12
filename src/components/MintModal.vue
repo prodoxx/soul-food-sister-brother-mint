@@ -53,7 +53,8 @@ const onMintConfirmed = async () => {
         });
         globalEmitter.emit(
             "show-message",
-            `Successfully minted! Tx: ${tx.hash} `
+            `Successfully minted! Tx: ${tx.hash} `,
+            true
         );
     } catch (error: any) {
         console.log({ error });
@@ -61,7 +62,8 @@ const onMintConfirmed = async () => {
             "show-message",
             `Failed to mint! Error: ${
                 typeof error === "string" ? error : error.message
-            }`
+            }`,
+            false
         );
     } finally {
         isBusy.value = false;
