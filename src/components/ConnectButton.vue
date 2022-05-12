@@ -16,25 +16,51 @@ let clickFunc = async () => {
     }
 };
 
-const buttonText = computed(() => {
+interface ButtonProps {
+    buttonText: string;
+    color: string;
+    variant: any;
+}
+
+const buttonProps = computed((): ButtonProps => {
     if (
         wallet.state.isConnected &&
         wallet.state.providerChainID !== DEFAULT_NETWORK
     ) {
-        return "Wrong Network";
+        return {
+            buttonText: "Wrong Network",
+            color: "red",
+            variant: "contained",
+        };
     } else if (wallet.state.isConnected) {
-        return "Disconnect";
+        return {
+            buttonText: "Disconnect",
+            color: "black",
+            variant: "outlined",
+        };
     } else {
-        return "Connect";
+        return {
+            buttonText: "Connect",
+            color: "black",
+            variant: "contained",
+        };
     }
 });
 </script>
 <template>
     <div>
-        <p v-if="wallet.state.isConnected">{{ wallet.state.address }}</p>
-        <button @click.stop="clickFunc">
-            {{ buttonText }}
-        </button>
+        <span v-if="wallet.state.isConnected" class="mr-4 font-weight-bold"
+            >{{ wallet.state.address.substring(0, 10) }}...</span
+        >
+        <v-btn
+            @click.stop="clickFunc"
+            elevation="2"
+            x-large
+            :variant="buttonProps.variant"
+            :color="buttonProps.color"
+        >
+            {{ buttonProps.buttonText }}
+        </v-btn>
     </div>
 </template>
 

@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
-import { markRaw, ref, reactive, DeepReadonly } from "vue";
-import type { Ref } from "vue";
+import { markRaw, reactive, DeepReadonly } from "vue";
 import Web3Modal from "web3modal";
 import { DEFAULT_NETWORK } from "../constants";
 import {
