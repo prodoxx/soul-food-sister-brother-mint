@@ -4,8 +4,9 @@ import vuetify from "@vuetify/vite-plugin";
 import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
 import { NodeModulesPolyfillPlugin } from "@esbuild-plugins/node-modules-polyfill";
 import rollupNodePolyFill from "rollup-plugin-node-polyfills";
+import { viteCommonjs } from "@originjs/vite-plugin-commonjs";
 
-const path = require("path");
+import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,6 +16,7 @@ export default defineConfig({
         vuetify({
             autoImport: true,
         }),
+        viteCommonjs(),
     ],
     define: { "process.env": {} },
     resolve: {
@@ -72,6 +74,9 @@ export default defineConfig({
         },
     },
     build: {
+        commonjsOptions: {
+            transformMixedEsModules: true,
+        },
         rollupOptions: {
             plugins: [
                 // Enable rollup polyfills plugin
