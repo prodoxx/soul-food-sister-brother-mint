@@ -74,7 +74,7 @@ const onMintConfirmed = async () => {
         <div class="d-flex justify-center align-center fill-height">
             <v-card class="px-5 py-3" width="500">
                 <v-card-title
-                    class="text-h5 primary white--text mb-4 d-flex justify-space-between"
+                    class="text-h5 primary white--text mb-4 d-flex justify-space-between px-0"
                 >
                     Confirm Mint Amount
                     <v-btn variant="plain" icon @click="closeModal">
