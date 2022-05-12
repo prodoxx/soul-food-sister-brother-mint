@@ -2,7 +2,7 @@ import { Networks } from "./blockchain";
 
 const ADDRESSES = {
     MAIN_NET: {
-        NFT_COLLECTION: "",
+        NFT_COLLECTION: "0x766ef5e79978cb63371c61694d0e355c048eb0cb",
     },
     TEST_NET: {
         NFT_COLLECTION: "0x766ef5e79978cb63371c61694d0e355c048eb0cb",
