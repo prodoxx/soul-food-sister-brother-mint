@@ -42,8 +42,7 @@ const snackbarColor: Ref<string> = ref("success");
 emitter.on("show-message", (message: string, isSuccess: boolean = true) => {
     if (isSuccess) {
         snackbarColor.value = "success";
-    }
-    {
+    } else {
         snackbarColor.value = "error";
     }
 
